@@ -24,7 +24,10 @@ module.exports = {
       return !todo.completed || showCompleted;
     });
     // Filter by searchText
-
+    filteredTodos = filteredTodos.filter((todo)=>{
+      var todoText = todo.text.toLowerCase();
+    return searchText.length== 0 || todoText.indexOf(searchText)>-1;
+  });
     //sort todos with non-completed first
     filteredTodos.sort((a,b)=>{
       if(!a.completed && b.completed){
